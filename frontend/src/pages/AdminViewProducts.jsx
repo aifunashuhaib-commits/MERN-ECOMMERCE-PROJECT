@@ -15,7 +15,7 @@ export default function AdminOrderDetails() {
     (async () => {
       try {
         setLoading(true);
-        const res = await axios.get(`http://localhost:5000/api/admin/orders/${id}`);
+        const res = await axios.get(`https://mern-ecommerce-project-igh5.onrender.com/api/admin/orders/${id}`);
         if (!mounted) return;
         setOrder(res.data);
         setStatus(res.data.status);
@@ -31,7 +31,7 @@ export default function AdminOrderDetails() {
 
   const save = async () => {
     try {
-      await axios.put(`http://localhost:5000/api/admin/orders/${id}/status`, { status, adminNote });
+      await axios.put(`https://mern-ecommerce-project-igh5.onrender.com/api/admin/orders/${id}/status`, { status, adminNote });
       alert("Updated");
       navigate("/admin/orders");
     } catch (err) {
