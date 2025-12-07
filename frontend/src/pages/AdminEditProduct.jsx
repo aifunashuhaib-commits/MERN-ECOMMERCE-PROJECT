@@ -17,7 +17,7 @@ function AdminEditProduct() {
 
   useEffect(() => {
     async function fetch() {
-      const res = await axios.get(`https://mern-ecommerce-project-igh5.onrender.com/api/products/${id}`);
+      const res = await axios.get(`http://localhost:5000/api/products/${id}`);
       setProduct(res.data);
     }
     fetch();
@@ -29,7 +29,7 @@ function AdminEditProduct() {
 
   const updateProduct = async () => {
     await axios.put(
-      `https://mern-ecommerce-project-igh5.onrender.com/api/products/${id}`,
+      `http://localhost:5000/api/products/${id}`,
       product,
       { headers: { Authorization: `Bearer ${token}` } }
     );
