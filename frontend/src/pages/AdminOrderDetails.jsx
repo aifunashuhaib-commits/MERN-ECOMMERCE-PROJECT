@@ -26,7 +26,7 @@ export default function AdminOrderDetails() {
         setError("");
 
         // 1) Fetch order (public endpoint per your Option B)
-        const res = await axios.get(`https://mern-ecommerce-project-igh5.onrender.com/api/admin/orders/${id}`);
+        const res = await axios.get(`http://localhost:5000/api/admin/orders/${id}`);
         if (!mounted) return;
 
         const ord = res.data;
@@ -38,7 +38,7 @@ export default function AdminOrderDetails() {
         try {
           // If your backend exposes GET /api/users/:id that returns user profile, this will work.
           if (ord.userId) {
-            const ures = await axios.get(`https://mern-ecommerce-project-igh5.onrender.com/api/users/${ord.userId}`);
+            const ures = await axios.get(`http://localhost:5000/api/users/${ord.userId}`);
             if (!mounted) return;
             setCustomer(ures.data);
           }
@@ -64,7 +64,7 @@ export default function AdminOrderDetails() {
     setSaving(true);
     try {
       const payload = { status, adminNote };
-      const res = await axios.put(`https://mern-ecommerce-project-igh5.onrender.com/api/admin/orders/${order._id}/status`, payload, {
+      const res = await axios.put(`http://localhost:5000/api/admin/orders/${order._id}/status`, payload, {
         headers: { "Content-Type": "application/json" }
       });
       setOrder(res.data);
