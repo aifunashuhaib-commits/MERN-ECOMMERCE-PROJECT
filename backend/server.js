@@ -33,3 +33,5 @@ mongoose.connect(process.env.MONGO_URI)
 // Server
 const PORT = 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+const FRONTEND_ORIGIN = process.env.FRONTEND_ORIGIN || '*'; // set exact URL in Render env for prod
+app.use(cors({ origin: FRONTEND_ORIGIN, credentials: true }));
